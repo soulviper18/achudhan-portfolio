@@ -40,6 +40,30 @@ const Badge = ({ children }) => (
     {children}
   </span>
 );
+const SkillBar = ({ name, level }) => {
+  const levelWidth =
+    level === "Advanced"
+      ? "90%"
+      : level === "Proficient"
+      ? "75%"
+      : "60%";
+
+  return (
+    <div className="space-y-1">
+      <div className="flex justify-between text-sm text-slate-300">
+        <span>{name}</span>
+        <span className="text-slate-400">{level}</span>
+      </div>
+      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-700"
+          style={{ width: levelWidth }}
+        />
+      </div>
+    </div>
+  );
+};
+
 
 /* =========================
    Reveal on Scroll
@@ -282,64 +306,46 @@ export default function Portfolio() {
 
       {/* ================= SKILLS ================= */}
       <section id="skills" className="py-24">
-        <FadeIn>
-          <SectionHeading subtitle="What I work with">Skills</SectionHeading>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card>
-              <h3 className="font-bold text-xl mb-4 flex gap-2 items-center">
-                <Code2 /> Languages
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {["Java", "Python", "SQL", "JavaScript", "HTML", "CSS"].map(
-                  (s) => (
-                    <Badge key={s}>{s}</Badge>
-                  )
-                )}
-              </div>
-            </Card>
+  <FadeIn>
+    <SectionHeading subtitle="Technical strengths and proficiency levels">
+      Skills
+    </SectionHeading>
 
-            <Card>
-              <h3 className="font-bold text-xl mb-4 flex gap-2 items-center">
-                <Database /> Frameworks & Tools
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Spring Boot",
-                  "React.js",
-                  "Kafka",
-                  "PostgreSQL",
-                  "MySQL",
-                  "H2",
-                  "Docker",
-                  "FastAPI",
-                  "Postman",
-                  "Git",
-                  "AWS",
-                  "REST APIs",
-                ].map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
-              </div>
-            </Card>
+    <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      {/* Backend & Core Engineering */}
+      <div className="space-y-6">
+        <h3 className="text-xl font-bold text-slate-100">
+          Backend & Core Engineering
+        </h3>
 
-            <Card>
-              <h3 className="font-bold text-xl mb-4 flex gap-2 items-center">
-                <Cpu /> Core Competencies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Data Structures & Algorithms",
-                  "Object-Oriented Programming",
-                  "Microservices",
-                  "Agile / SDLC",
-                ].map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
-              </div>
-            </Card>
-          </div>
-        </FadeIn>
-      </section>
+        <SkillBar name="Java" level="Proficient" />
+        <SkillBar name="Spring Boot" level="Proficient" />
+        <SkillBar name="Apache Kafka" level="Proficient" />
+        <SkillBar name="PostgreSQL / MySQL" level="Proficient" />
+        <SkillBar name="Docker" level="Working Knowledge" />
+        <SkillBar name="REST API Design" level="Advanced" />
+      </div>
+
+      {/* Programming, Data & Frontend */}
+      <div className="space-y-6">
+        <h3 className="text-xl font-bold text-slate-100">
+          Programming, Data & Frontend
+        </h3>
+
+        <SkillBar name="Python" level="Advanced" />
+        <SkillBar name="React.js" level="Proficient" />
+        <SkillBar name="Git & Version Control" level="Proficient" />
+        <SkillBar name="AWS (EC2, S3)" level="Working Knowledge" />
+        <SkillBar name="FastAPI" level="Working Knowledge" />
+      </div>
+    </div>
+
+    <p className="text-sm text-slate-500 text-center mt-10">
+      Proficiency levels reflect hands-on project and implementation experience.
+    </p>
+  </FadeIn>
+</section>
+
 
       {/* ================= PROJECTS ================= */}
       <section id="projects" className="py-24 bg-slate-900/50">
