@@ -199,7 +199,7 @@ export default function Portfolio() {
               View Projects
               </button>
             <a
-    href="/Achudhan_M_Resume.pdf"
+    href="/Resume.pdf"
     download
     className="px-8 py-3 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500/10 transition"
   >
