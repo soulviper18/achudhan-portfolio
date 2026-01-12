@@ -409,7 +409,7 @@ export default function Portfolio() {
               SRM University, Chennai
             </h3>
             <p>B.Tech in Computer Science Engineering</p>
-            <p>CGPA: 8.75 · 2022 – 2026</p>
+            <p>CGPA: 9.00 · 2022 – 2026</p>
           </div>
         </FadeIn>
       </section>
